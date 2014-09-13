@@ -1,0 +1,111 @@
+// TexasHoldEm.cpp : Defines the entry point for the console application.
+//
+
+/*
+  Author:  Dorian P. Yeager
+  Course:  COMP 220, Computer Programming II
+  Date:    30 August 2013
+  Description:  This file implements the driver
+                program for this assignment.
+*/
+
+#include "card.h"
+#include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
+
+string Card::suitName (Suit s) {
+	switch(s) {
+		case clubs: return "Clubs";
+		case diamonds: return "Diamonds";
+		case hearts: return "Hearts";
+		case spades: return "Spades";
+		default: throw std::out_of_range("Suit value out of range");
+	}
+}
+
+string Card::valueName (Value v) {
+	switch(v) {
+	case ace: return "Ace";
+	case deuce: return "Deuce";
+	case trey: return "Trey";
+	case four: return "Four";
+	case five: return "Five";
+	case six:  return "Six";
+	case seven: return "Seven";
+	case eight: return "Eight";
+	case nine: return "Nine";
+	case ten: return "Ten";
+	case jack: return "Jack";
+	case queen: return "Queen";
+	case king: return "King";
+	default: throw std::out_of_range("Face value out of range");
+	}
+}
+
+int getNumPlayers()
+{
+	int numPlayers = 0;
+	while (numPlayers < 2 || numPlayers > 9)
+	{
+		cout << "How many players?" << endl;
+		cin >> numPlayers;
+	}
+	return numPlayers;
+}
+
+void shuffleDeck()
+{
+
+}
+
+void dealCards(int numPlayers)
+{
+
+}
+
+void bettingRound()
+{
+
+}
+
+void flopTurnRiver(int numCards)
+{
+
+}
+
+void compareHands()
+{
+
+}
+
+void gameRound(int numPlayers)
+{
+	shuffleDeck();
+	dealCards(numPlayers);
+	bettingRound();
+	flopTurnRiver(3);
+	bettingRound();
+	flopTurnRiver(1);
+	bettingRound();
+	flopTurnRiver(1);
+	bettingRound();
+	compareHands();
+}
+
+void outputResults()
+{
+
+}
+
+int main()
+{
+	int numPlayers = getNumPlayers();
+
+	while (numPlayers > 1) gameRound(numPlayers);
+
+	outputResults();
+
+	return 0;
+}
